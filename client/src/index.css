@@ -206,4 +206,104 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Animated mountain background */
+  .animated-bg {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1428 100%);
+  }
+
+  .animated-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(0, 150, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(0, 100, 200, 0.1) 0%, transparent 50%);
+    animation: bgShift 15s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .animated-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(0, 200, 255, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(0, 150, 255, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(0, 100, 200, 0.02) 0%, transparent 50%);
+    animation: bgPulse 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes bgShift {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(10px, -10px);
+    }
+  }
+
+  @keyframes bgPulse {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  /* Starfield animation */
+  .starfield {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .star {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* Glow animation for buttons */
+  .glow-animate {
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(0, 150, 255, 0.5), 0 0 40px rgba(0, 100, 200, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(0, 150, 255, 0.8), 0 0 60px rgba(0, 100, 200, 0.5);
+    }
+  }
+
+  /* Performance optimization: will-change for animations */
+  .animate-float {
+    will-change: transform;
+  }
+
+  .smooth-transition {
+    will-change: auto;
+  }
 }
