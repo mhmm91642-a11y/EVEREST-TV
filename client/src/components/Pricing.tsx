@@ -72,31 +72,18 @@ export default function Pricing() {
               <div className="p-6 border-t border-white/10">
                 <Button
                   onClick={handleWhatsApp}
-                  className={`w-full font-bold py-6 smooth-transition ${
+                  type="button"
+                  className={`w-full font-bold py-6 smooth-transition cursor-pointer ${
                     index === 1
-                      ? "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 glow"
-                      : "bg-blue-600/50 hover:bg-blue-600"
+                      ? "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 glow text-white"
+                      : "bg-blue-600/50 hover:bg-blue-600 text-white"
                   }`}
                 >
-                  {t.pricing.subscribeBtn}
+                  {language === "ar" ? "اشترك عبر واتساب" : "Subscribe via WhatsApp"}
                 </Button>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Payment Info */}
-        <div className="bg-card/50 border border-white/10 rounded-lg p-8 text-center">
-          <p className="text-foreground/80 mb-4">
-            {language === "ar"
-              ? "💳 الدفع آمن وسهل عبر جميع طرق الدفع"
-              : "💳 Safe and easy payment through all payment methods"}
-          </p>
-          <p className="text-sm text-foreground/60">
-            {language === "ar"
-              ? "يتم التفعيل فوراً بعد الدفع مباشرة"
-              : "Activation is instant after payment"}
-          </p>
         </div>
       </div>
     </section>
