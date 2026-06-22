@@ -9,8 +9,13 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = translations[language];
 
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/966580928565", "_blank");
+  const handleWhatsApp = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const whatsappUrl = "https://wa.me/966580928565";
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   const handleLanguageChange = (lang: "ar" | "en") => {

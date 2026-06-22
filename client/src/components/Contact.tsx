@@ -6,8 +6,13 @@ export default function Contact() {
   const { language } = useLanguage();
   const t = translations[language];
 
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/966580928565", "_blank");
+  const handleWhatsApp = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const whatsappUrl = "https://wa.me/966580928565";
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
