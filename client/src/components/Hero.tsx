@@ -1,17 +1,19 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
+import { openWhatsApp } from "@/lib/whatsapp";
 import AnimatedBackground from "./AnimatedBackground";
 
 export default function Hero() {
   const { language } = useLanguage();
   const t = translations[language];
 
-  const handleWhatsApp = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const whatsappUrl = "https://wa.me/966580928565";
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  const handleWhatsApp = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    openWhatsApp();
   };
 
   const handleSubscribe = () => {

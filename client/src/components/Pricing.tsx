@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
+import { openWhatsApp } from "@/lib/whatsapp";
 import { Check } from "lucide-react";
 
 export default function Pricing() {
@@ -12,8 +13,7 @@ export default function Pricing() {
       e.preventDefault();
       e.stopPropagation();
     }
-    const whatsappUrl = "https://wa.me/966580928565";
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    openWhatsApp();
   };
 
   return (

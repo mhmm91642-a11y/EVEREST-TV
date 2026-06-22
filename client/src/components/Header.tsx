@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
+import { openWhatsApp } from "@/lib/whatsapp";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -14,8 +15,7 @@ export default function Header() {
       e.preventDefault();
       e.stopPropagation();
     }
-    const whatsappUrl = "https://wa.me/966580928565";
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    openWhatsApp();
   };
 
   const handleLanguageChange = (lang: "ar" | "en") => {
