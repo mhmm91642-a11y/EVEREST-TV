@@ -70,3 +70,14 @@ export const openWhatsAppWithMessage = (message: string) => {
     console.error("Error opening WhatsApp with message:", error);
   }
 };
+
+/**
+ * Opens WhatsApp with a subscription plan message
+ */
+export const openWhatsAppWithPlan = (planName: string, language: "ar" | "en" = "ar") => {
+  const greetingAr = `السلام عليكم ورحمة الله وبركاته 👋\n\nأود الاشتراك في باقة ${planName}\n\nالرجاء تفعيل الاشتراك في أقرب وقت ممكن.`;
+  const greetingEn = `Hello! 👋\n\nI would like to subscribe to the ${planName} plan.\n\nPlease activate my subscription as soon as possible.`;
+  
+  const message = language === "ar" ? greetingAr : greetingEn;
+  openWhatsAppWithMessage(message);
+};
