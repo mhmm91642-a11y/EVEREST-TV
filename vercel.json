@@ -1,11 +1,19 @@
 {
   "buildCommand": "pnpm build",
   "devCommand": "pnpm dev",
-  "installCommand": "pnpm install --frozen-lockfile",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "framework": "vite",
   "outputDirectory": "dist/public",
+  "public": false,
   "env": {
     "NODE_ENV": "production"
   },
-  "regions": ["sin1"]
+  "regions": ["sin1"],
+  "functions": {
+    "server/index.ts": {
+      "runtime": "nodejs18.x",
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  }
 }
