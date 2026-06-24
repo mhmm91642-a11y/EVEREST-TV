@@ -9,11 +9,10 @@
     "NODE_ENV": "production"
   },
   "regions": ["sin1"],
-  "functions": {
-    "server/index.ts": {
-      "runtime": "nodejs18.x",
-      "memory": 1024,
-      "maxDuration": 60
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
-  }
+  ]
 }
